@@ -1,19 +1,20 @@
-import React from "react";
-import Link from "next/link";
+'use client'
+import React, { useState, useEffect } from 'react';
+import CoinCard from './components/CoinCard';
 
-const Start = () => {
-  return (
-    <div id="start-page">
-      <Link id="start-to-login" href="/login">
-        Login Page
-      </Link>
-      <br />
-      <Link id="start-to-secret" href="/secretpage">
-        Secret Page
-      </Link>
-      <br />
-      <h2>Welcome to Start page</h2>
-    </div>
-  );
-};
-export default Start;
+function Home() {
+    const [coins, setCoins] = useState([]);
+
+    return (
+        <div className='home'>
+            <h1>Top 20 Cryptos</h1>
+            <div className='coins-container'>
+                {coins.map((coin) => (
+                    <CoinCard />
+                ))}
+            </div>
+        </div>
+    )
+}
+
+export default Home
